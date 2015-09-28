@@ -1,19 +1,42 @@
-var toppings = ["pineapples", "artichockes", "olives", "garlic", "carmalized onions", "basil", "spinach", "fresh tomato", "sundried tomato"];
-
-function Pizza(toppings, proportion) {
+// var toppings = ["pineapples", "artichokes", "olives", "garlic", "carmalized onions", "basil", "spinach", "fresh tomato", "sundried tomato"];
+var toppings = [];
+function Pizza(toppings, proportion, quantity) {
   this.toppings = toppings;
   this.proportion = proportion;
+  this.quantity = quantity;
 };
 
 Pizza.prototype.initialCost = function(proportion) {
+  var initialCost;
   if (proportion = "small") {
-    return 8;
+    initialCost = 8 * this.quantity;
   } else if (proportion = "medium") {
-    return 10;
+    initialCost = 10 * this.quantity;
   } else {
-    return 12;
-  };
+    initialCost = 12 * this.quantity;
+  } return initialCost;
 };
+
+Pizza.prototype.addToppings = function(toppings) {
+  this.toppings.push(toppings);
+  this.initialCost + 1;
+};
+
+// Pizza.prototype.toppingsCost = function(toppings) {
+//   var cost = 0;
+//   for(toppings in Pizza) {
+//     cost += 1;
+//   } return cost;
+// };
+
+// Pizza.prototype.finalCost = function() {
+//   var finalCost = this.initialCost * this.quantity;
+//   return finalCost;
+// }
+//   this.forEach(function(toppings) {
+//     extraCost = this.initialCost + .50;
+//   }) return extraCost;
+// };
 //
 // $(document).ready(function() {
 //   $("form#factorial").submit(function(event) {

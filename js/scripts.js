@@ -6,18 +6,19 @@ function Pizza(toppings, proportion, quantity) {
   this.quantity = quantity;
 };
 
-Pizza.prototype.initialCost = function(proportion) {
+Pizza.prototype.initialCost = function() {
+
   var initialCost;
-  if (proportion = "small") {
+  if (this.proportion === "small") {
     initialCost = 8 * this.quantity;
-  } else if (proportion = "medium") {
+  } else if (this.proportion === "medium") {
     initialCost = 10 * this.quantity;
   } else {
     initialCost = 12 * this.quantity;
   } return initialCost;
 };
 
-Pizza.prototype.addToppings = function(toppings) {
+Pizza.prototype.addToppings = function(toppings, initialCost) {
   this.toppings.push(toppings);
   this.initialCost + 1;
 };
@@ -38,16 +39,11 @@ Pizza.prototype.addToppings = function(toppings) {
 //   }) return extraCost;
 // };
 //
-// $(document).ready(function() {
-//   $("form#factorial").submit(function(event) {
-//     var number= parseInt($("input#number").val());
-//     var result = factorial(number);
-//
-//       $(".number").text(number)
-//       $(".final").text(result)
-//        $("#result").show()
-//
-//
-//     event.preventDefault();
-//   });
-// });
+$(document).ready(function() {
+  $("button#actionSubmit").click(function() {
+
+
+
+    event.preventDefault();
+  });
+});

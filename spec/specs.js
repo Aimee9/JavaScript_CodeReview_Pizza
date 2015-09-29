@@ -7,7 +7,7 @@ describe('pizza', function() {
   });
 
   it("will determine the cost based on size of pizza", function() {
-    var newPizza = new Pizza(["garlic"], "large", 2);
+    var newPizza = new Pizza("garlic", "large", 2);
     expect(newPizza.initialCost()).to.equal(24);
   });
 

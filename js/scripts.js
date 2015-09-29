@@ -6,44 +6,34 @@ function Pizza(toppings, proportion, quantity) {
   this.quantity = quantity;
 };
 
-Pizza.prototype.initialCost = function() {
+Pizza.prototype.totalCost = function() {
 
   var initialCost;
   if (this.proportion === "small") {
-    initialCost = 8 * this.quantity;
+    initialCost = 8;
   } else if (this.proportion === "medium") {
-    initialCost = 10 * this.quantity;
+    initialCost = 10;
   } else {
-    initialCost = 12 * this.quantity;
-  } return initialCost;
+    initialCost = 12;
+  } return initialCost * this.quantity;
 };
 
-Pizza.prototype.addToppings = function(toppings, initialCost) {
+Pizza.prototype.addToppings = function(toppings, totalCost) {
   this.toppings.push(toppings);
-  this.initialCost + 1;
 };
 
-// Pizza.prototype.toppingsCost = function(toppings) {
-//   var cost = 0;
-//   for(toppings in Pizza) {
-//     cost += 1;
-//   } return cost;
-// };
-
-// Pizza.prototype.finalCost = function() {
-//   var finalCost = this.initialCost * this.quantity;
-//   return finalCost;
-// }
-//   this.forEach(function(toppings) {
-//     extraCost = this.initialCost + .50;
-//   }) return extraCost;
-// };
 //
 $(document).ready(function() {
+
+  $('input[type=checkbox]').click(function()) {
+    var total = 0;
+    $('input:checked').each(function (index, item) {
+      total += parseFloat(item.value);
+    }) return total;
+  }
   $("button#actionSubmit").click(function() {
-
-
-
-    event.preventDefault();
+    var everything = total + this.totalCost()
+    everything.text(".number");
+    $("#results").show();
   });
 });

@@ -31,7 +31,6 @@ $(document).ready(function() {
   // var myPizza = new Pizza(size, howMany);
 
   $("button#actionSubmit").click(function() {
-    debugger;
     var size= $('select#actionDropdown').val();
     var howMany = parseInt($('input#quantity').val());
     var myPizza = new Pizza(size, howMany);

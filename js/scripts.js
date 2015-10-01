@@ -1,7 +1,5 @@
-// var toppings = ["pineapples", "artichokes", "olives", "garlic", "carmalized onions", "basil", "spinach", "fresh tomato", "sundried tomato"];
-var toppings = [];
-function Pizza(toppings, proportion, quantity) {
-  this.toppings = toppings;
+
+function Pizza(proportion, quantity) {
   this.proportion = proportion;
   this.quantity = quantity;
 };
@@ -18,22 +16,28 @@ Pizza.prototype.totalCost = function() {
   } return initialCost * this.quantity;
 };
 
-Pizza.prototype.addToppings = function(toppings, totalCost) {
-  this.toppings.push(toppings);
-};
+function resetModalFields() {
+  $('input#quantity').val('');
+  $(':checkbox:not(:checked)').attr('checked', 'checked');
+  $(':checkbox:checked').removeAttr('checked');
+  $('select option:first-child').attr('selected', 'selected');
+}
+
 
 //
 $(document).ready(function() {
+  var size= $('select#actionDropdown').val();
+  var howMany = $('#quantity');
+  var myPizza = new Pizza(size, howMany);
 
-  $('input[type=checkbox]').click(function()) {
-    var total = 0;
-    $('input:checked').each(function (index, item) {
-      total += parseFloat(item.value);
-    }) return total;
-  }
   $("button#actionSubmit").click(function() {
-    var everything = total + this.totalCost()
-    everything.text(".number");
-    $("#results").show();
+
+    var toppings = $('input:checked').length;
+    //var everything = myPizza.totalCost() + toppings;
+    $('.number').text(toppings);
+    $('div#myModal').modal('hide');
+
+    $("#result").show();
+    resetModalFields();
   });
 });

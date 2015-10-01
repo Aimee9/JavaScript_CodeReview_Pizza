@@ -20,21 +20,24 @@ function resetModalFields() {
   $('input#quantity').val('');
   $(':checkbox:not(:checked)').attr('checked', 'checked');
   $(':checkbox:checked').removeAttr('checked');
-  $('select option:first-child').attr('selected', 'selected');
+  $('select#actionDropdown option:first-child').attr('selected', 'selected');
 }
 
 
 //
 $(document).ready(function() {
-  var size= $('select#actionDropdown').val();
-  var howMany = $('#quantity');
-  var myPizza = new Pizza(size, howMany);
+  // var size= $('select#actionDropdown').val();
+  // var howMany = $('#quantity');
+  // var myPizza = new Pizza(size, howMany);
 
   $("button#actionSubmit").click(function() {
-
+    debugger;
+    var size= $('select#actionDropdown').val();
+    var howMany = parseInt($('input#quantity').val());
+    var myPizza = new Pizza(size, howMany);
     var toppings = $('input:checked').length;
-    //var everything = myPizza.totalCost() + toppings;
-    $('.number').text(toppings);
+    var everything = myPizza.totalCost() + toppings;
+    $('.number').text(everything);
     $('div#myModal').modal('hide');
 
     $("#result").show();

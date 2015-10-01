@@ -1,11 +1,11 @@
-# <Name>
+# Pizza Nizza
 
-##### <Brief Description>, <Date>
+##### A Pizza Parlor, Sept 2015
 
-#### <Authors>
+#### by Aimee Reiss
 
 ## Description
-
+This excercise for Javascript will allow you to order from a pizza place.  You can choose the size and the toppings of the pizza and how many of them you want.
 
 
 ## Setup
